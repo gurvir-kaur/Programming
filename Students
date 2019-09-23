@@ -1,0 +1,64 @@
+/·
+Using the definition
+
+     struct Student {
+         int idn;
+         string name;
+         double mark;        // The mark is a value between 0 and 10, or -1 that represents NP
+         bool repeater;
+     };
+implement the procedure
+
+     void information(const vector<Student>& stu, double& min, double& max, double& avg)
+that computes the minimum mark (min), the maximum mark (max) and the average mark (avg) 
+of all the students of the table stu that have taken the exam and that are not repeaters. 
+If none of the students that has these requirements, the value of these parameters must be −1.
+
+Observation You only need to submit the required classes; your main program will be ignored. 
+Strictly obey the type definitions of the statement.
+·/
+
+                  #include <iostream>
+                  #include <vector>
+
+                  using namespace std;
+
+                  struct Student {
+                      int idn;
+                      string name;
+                      double mark;        // The mark is a value between 0 and 10, or -1 that represents NP
+                      bool repeater;
+                  };
+
+                  // Maybe the students are repeated in the vector (so, maybe it does not work)
+
+                  void information(const vector<Student>& stu, double& min, double& max, double& avg){
+                      min = -1;
+                      max = -1;
+                      avg = -1;
+                      int repeaters = 0;
+
+                      int size = int(stu.size());
+
+                      for(int i = 0; i < size; ++i){
+                          if (!stu[i].repeater and stu[i].mark >= 0){
+                              if (min == -1){
+                                  min = stu[i].mark;
+                                  max = stu[i].mark;
+                                  avg = stu[i].mark;
+                              } else {
+                                  if(stu[i].mark < min) min = stu[i].mark;
+                                  if(stu[i].mark > max) max = stu[i].mark;
+                                  avg += stu[i].mark;
+                              }
+                          } else {
+                              ++repeaters;
+                          }
+                      }
+
+                      if (avg != -1) avg = avg / (size - repeaters);
+                  }
+
+                  int main(){
+
+                  }
