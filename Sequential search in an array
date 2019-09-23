@@ -1,0 +1,36 @@
+/·
+Write a function that tells if the integer number x is present in the vector of integer numbers v.
+
+In order to compare the efficiency of your solution against the efficiency of the solution of the Judge, 
+start searching for x from the lowest positions.
+
+Interface
+
+C++	
+     bool exists(int x, const vector<int>& v);
+C	
+     int exists(int x, const int v[], int vsize);
+Java	
+     public static boolean exists(int x, int[] v);
+Python	
+     exists(x, v)  # returns bool
+ 	
+     exists(x: int, v: list) -> bool
+Observation You only need to submit the required procedure; your main program will be ignored.
+
+·/
+
+
+                          #include <iostream> 
+                          #include <vector>
+                          using namespace std;
+
+                          bool exists(int x, const vector<int>& v){
+                              for(int i = 0; i < v.size(); ++i){
+                                  if(x == v[i]) return true;
+                              }
+                              return false;
+                          }
+
+                          int main(){
+                          }
