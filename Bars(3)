@@ -1,0 +1,30 @@
+/· 
+Write a program that reads a natural number n, and prints 2n − 1 bars of asterisks, following the pattern that 
+can be deduced from the examples.
+
+Input: Input consists of a natural number n > 0.
+
+Output: Print 2n − 1 lines, following the pattern that can be deduced from the examples.
+·/
+
+
+                    #include <iostream>
+                    using namespace std;
+
+                    void barres(int n) {
+                        if (n == 1) cout << '*' << endl;
+                        else {
+                            barres (n-1);
+                            barres (n-1);
+                            for (int i = 1; i <= n; ++i)
+                                cout << '*';
+                            cout << endl;
+                        }
+                    }
+
+                    int main () {
+                        int n;
+                        cin >> n;
+                        barres(n);
+
+                    }
