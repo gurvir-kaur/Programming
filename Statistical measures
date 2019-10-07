@@ -1,0 +1,43 @@
+/*
+Write a program that reads non-empty sequences of real numbers and, for each sequence, prints its minimum, its maximum and its average.
+
+Input: Input consists of a natural number n, followed by n sequences. Each sequence begins with the number of elements m > 0, 
+       followed by m real numbers.
+
+Output: For every sequence, print in a line and with four digits after the decimal point its minimum, its maximum and its average.
+
+*/
+
+                          #include <iostream>
+                          using namespace std;
+                          int main () {
+                            cout.setf(ios::fixed);
+                            cout.precision(4);
+
+                            int n;
+                            cin >> n;
+                            while (n>0){
+                              int m;
+                              cin >> m;
+                              double minim;
+                              cin >> minim;
+                              double maxim =minim;
+                              double suma = minim;
+                              double mitjana;
+                              for (int i=0; i<m-1; ++i) {
+                                double v;
+                                cin >> v;
+                                if(v<minim) minim=v;
+                                if(v>maxim) maxim = v;
+
+                                suma = suma+v;
+                              }
+                              mitjana= suma/m;
+
+                             --n; 
+                             cout << minim << ' ' << maxim << ' ' << mitjana << endl;
+
+                            }
+
+                          }
+  
